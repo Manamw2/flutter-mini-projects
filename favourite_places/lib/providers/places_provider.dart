@@ -42,7 +42,7 @@ class PlacesNotifier extends StateNotifier<List<Place>> {
       final appDir = await syspath.getApplicationDocumentsDirectory();
       final imageName = path.basename(newPlace.image.path);
       final copiedImage = await newPlace.image.copy('${appDir.path}/$imageName');
-
+ 
       final db = await _getDatabase();
       await db.insert('Places', {
         'Id': newPlace.id,
